@@ -1,0 +1,12 @@
+file_format: "1"
+id: osito
+name: Osito
+type: shield
+url: https://github.com/huix9527/zmk-config
+requires: [pro_micro]
+features:
+  - keys
+  - studio
+siblings:
+  - osito_left
+  - osito_right

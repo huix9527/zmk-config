@@ -1,0 +1,7 @@
+# SPDX-License-Identifier: MIT
+
+config SHIELD_OSITO_LEFT
+    def_bool $(shields_list_contains,osito_left)
+
+config SHIELD_OSITO_RIGHT
+    def_bool $(shields_list_contains,osito_right)

@@ -28,4 +28,10 @@ include:
   - board: nice_nano_v2
     shield: iris_right
   - board: nice_nano_v2
+    shield: osito_left
+    snippet: studio-rpc-usb-uart
+    cmake-args: -DCONFIG_ZMK_STUDIO=y
+  - board: nice_nano_v2
+    shield: osito_right
+  - board: nice_nano_v2
     shield: settings_reset

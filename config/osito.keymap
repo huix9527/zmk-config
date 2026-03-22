@@ -7,6 +7,35 @@
 #include <dt-bindings/zmk/bt.h>
 
 / {
+    macros {
+        opt_space_delayed: opt_space_delayed {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            wait-ms = <0>;
+            tap-ms = <0>;
+            bindings
+                = <&macro_press &kp LALT>
+                , <&macro_wait_time 40>
+                , <&macro_press &kp SPACE>
+                , <&macro_wait_time 70>
+                , <&macro_release &kp SPACE>
+                , <&macro_wait_time 40>
+                , <&macro_release &kp LALT>
+                ;
+        };
+    };
+
+    combos {
+        compatible = "zmk,combos";
+
+        combo_sd_esc {
+            timeout-ms = <50>;
+            key-positions = <26 27>;
+            bindings = <&kp ESC>;
+            layers = <0>;
+        };
+    };
+
     keymap {
         compatible = "zmk,keymap";
 
@@ -17,7 +46,7 @@
 &kp TAB    &kp Q       &kp W       &kp E       &kp R       &kp T                      &kp Y       &kp U       &kp I       &kp O       &kp P       &kp BSLH
 &kp LSHFT  &kp A       &kp S       &kp D       &kp F       &kp G                      &kp H       &kp J       &kp K       &kp L       &kp SEMI    &kp RSHFT
 &kp LALT   &kp Z       &kp X       &kp C       &kp V       &kp B                      &kp N       &kp M       &kp COMMA   &kp DOT     &kp FSLH    &kp RALT
-                                        &mo 2   &kp LGUI   &kp LA(SPACE)             &kp RET     &kp SPACE   &mo 1
+                                        &mo 2   &kp LGUI   &opt_space_delayed        &kp RET     &kp SPACE   &mo 1
             >;
         };
 
@@ -38,7 +67,7 @@
 &none      &none        &none         &none         &none         &none                  &none       &none         &none         &none       &none       &kp C_VOL_UP
 &none      &none        &none         &kp UP        &none         &none                  &kp LS(N3)  &kp LS(LBKT)  &kp LS(MINUS) &none       &kp UP      &kp C_VOL_DN
 &none      &none        &kp LEFT      &kp DOWN      &kp RIGHT     &none                  &kp LS(N6)  &kp LS(N9)    &kp LS(N0)    &kp LS(N4)  &kp LS(SEMI) &none
-&none      &none        &none         &none         &none         &none                  &kp BSLH    &kp LS(GRAVE) &kp LS(SQT)   &none       &kp FSLH    &studio_unlock
+&none      &none        &none         &kp LG(GRAVE) &kp LG(TAB)   &none                  &kp BSLH    &kp LS(GRAVE) &kp LS(SQT)   &none       &kp FSLH    &studio_unlock
                                         &none        &none         &none                  &none       &none       &none
             >;
         };

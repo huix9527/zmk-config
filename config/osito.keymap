@@ -67,7 +67,7 @@
 &none      &none        &none         &none         &none         &none                  &none       &none         &none         &none       &none       &kp C_VOL_UP
 &none      &none        &none         &kp UP        &none         &none                  &kp LS(N3)  &kp LS(LBKT)  &kp LS(MINUS) &none       &kp UP      &kp C_VOL_DN
 &none      &none        &kp LEFT      &kp DOWN      &kp RIGHT     &none                  &kp LS(N6)  &kp LS(N9)    &kp LS(N0)    &kp LS(N4)  &kp LS(SEMI) &none
-&none      &none        &none         &kp LG(GRAVE) &kp LG(TAB)   &none                  &kp BSLH    &kp LS(GRAVE) &kp LS(SQT)   &none       &kp FSLH    &studio_unlock
+&none      &none        &none         &none         &none         &none                  &kp BSLH    &kp LS(GRAVE) &kp LS(SQT)   &none       &kp FSLH    &studio_unlock
                                         &none        &none         &none                  &none       &none       &none
             >;
         };

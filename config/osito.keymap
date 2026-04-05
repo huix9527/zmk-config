@@ -25,16 +25,67 @@
         };
     };
 
-    combos {
-        compatible = "zmk,combos";
+    behaviors {
+        lt_spc: layer_tap_space {
+            compatible = "zmk,behavior-hold-tap";
+            #binding-cells = <2>;
+            flavor = "hold-preferred";
+            tapping-term-ms = <200>;
+            quick-tap-ms = <175>;
+            require-prior-idle-ms = <150>;
+            retro-tap;
+            bindings = <&mo>, <&kp>;
+        };
 
-        combo_sd_esc {
-            timeout-ms = <50>;
-            key-positions = <26 27>;
-            bindings = <&kp ESC>;
-            layers = <0>;
+        lt_esc: layer_tap_escape {
+            compatible = "zmk,behavior-hold-tap";
+            #binding-cells = <2>;
+            flavor = "hold-preferred";
+            tapping-term-ms = <200>;
+            quick-tap-ms = <175>;
+            require-prior-idle-ms = <150>;
+            retro-tap;
+            bindings = <&mo>, <&kp>;
+        };
+
+        ht_s: hold_tap_s {
+            compatible = "zmk,behavior-hold-tap";
+            #binding-cells = <2>;
+            flavor = "balanced";
+            tapping-term-ms = <280>;
+            quick-tap-ms = <175>;
+            require-prior-idle-ms = <150>;
+            hold-trigger-key-positions = <30 31 32 33 34>;
+            hold-trigger-on-release;
+            retro-tap;
+            bindings = <&mo>, <&kp>;
+        };
+
+        ht_l: hold_tap_l {
+            compatible = "zmk,behavior-hold-tap";
+            #binding-cells = <2>;
+            flavor = "balanced";
+            tapping-term-ms = <280>;
+            quick-tap-ms = <175>;
+            require-prior-idle-ms = <150>;
+            hold-trigger-key-positions = <25 26 27 28 29>;
+            hold-trigger-on-release;
+            retro-tap;
+            bindings = <&mo>, <&kp>;
+        };
+
+        ht_ret: hold_tap_return {
+            compatible = "zmk,behavior-hold-tap";
+            #binding-cells = <2>;
+            flavor = "hold-preferred";
+            tapping-term-ms = <200>;
+            quick-tap-ms = <175>;
+            require-prior-idle-ms = <150>;
+            retro-tap;
+            bindings = <&kp>, <&kp>;
         };
     };
+
 
     keymap {
         compatible = "zmk,keymap";
@@ -44,9 +95,9 @@
             bindings = <
 &kp GRAVE  &kp N1      &kp N2      &kp N3      &kp N4      &kp N5                     &kp N6      &kp N7      &kp N8      &kp N9      &kp N0      &kp BSPC
 &kp TAB    &kp Q       &kp W       &kp E       &kp R       &kp T                      &kp Y       &kp U       &kp I       &kp O       &kp P       &kp BSLH
-&kp LSHFT  &kp A       &kp S       &kp D       &kp F       &kp G                      &kp H       &kp J       &kp K       &kp L       &kp SEMI    &kp RSHFT
+&kp LSHFT  &kp A       &ht_s 4 S   &kp D       &kp F       &kp G                      &kp H       &kp J       &kp K       &ht_l 3 L   &kp SEMI    &kp RSHFT
 &kp LALT   &kp Z       &kp X       &kp C       &kp V       &kp B                      &kp N       &kp M       &kp COMMA   &kp DOT     &kp LS(FSLH) &kp RALT
-                                        &mo 2   &kp LGUI   &opt_space_delayed        &kp RET     &kp SPACE   &mo 1
+                                        &kp LGUI &lt_esc 2 ESC     &opt_space_delayed        &ht_ret LCTRL RET     &lt_spc 1 SPACE   &kp BSPC
             >;
         };
 
@@ -69,6 +120,28 @@
 &none      &none        &kp LEFT      &kp DOWN      &kp RIGHT     &none                  &kp LS(N6)  &kp LS(N9)    &kp LS(N0)    &kp LS(N4)  &kp LS(SEMI) &none
 &none      &none        &none         &none         &none         &none                  &kp BSLH    &kp GRAVE     &kp SQT       &kp LS(SQT) &kp FSLH    &studio_unlock
                                         &none        &none         &none                  &none       &none       &none
+            >;
+        };
+
+        num_left_layer {
+            display-name = "NumL";
+            bindings = <
+&trans     &trans       &trans        &trans        &trans        &trans                 &trans      &trans        &trans        &trans      &trans      &trans
+&trans     &trans       &trans        &trans        &trans        &trans                 &trans      &trans        &trans        &trans      &trans      &trans
+&trans     &kp N1       &kp N2        &kp N3        &kp N4        &kp N5                 &trans      &trans        &trans        &trans      &trans      &trans
+&trans     &trans       &trans        &trans        &trans        &trans                 &trans      &trans        &trans        &trans      &trans      &trans
+                                        &trans       &trans        &trans                 &trans      &trans      &trans
+            >;
+        };
+
+        num_right_layer {
+            display-name = "NumR";
+            bindings = <
+&trans     &trans       &trans        &trans        &trans        &trans                 &trans      &trans        &trans        &trans      &trans      &trans
+&trans     &trans       &trans        &trans        &trans        &trans                 &trans      &trans        &trans        &trans      &trans      &trans
+&trans     &trans       &trans        &trans        &trans        &trans                 &kp N6      &kp N7        &kp N8        &kp N9      &kp N0      &trans
+&trans     &trans       &trans        &trans        &trans        &trans                 &trans      &trans        &trans        &trans      &trans      &trans
+                                        &trans       &trans        &trans                 &trans      &trans      &trans
             >;
         };
     };

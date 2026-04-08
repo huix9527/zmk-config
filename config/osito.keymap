@@ -31,7 +31,6 @@
             #binding-cells = <2>;
             flavor = "hold-preferred";
             tapping-term-ms = <200>;
-            require-prior-idle-ms = <50>;
             retro-tap;
             bindings = <&mo>, <&kp>;
         };
@@ -65,7 +64,6 @@
             #binding-cells = <2>;
             flavor = "hold-preferred";
             tapping-term-ms = <200>;
-            require-prior-idle-ms = <50>;
             retro-tap;
             bindings = <&kp>, <&kp>;
         };
@@ -82,7 +80,7 @@
 &kp TAB    &kp Q       &kp W       &kp E       &kp R       &kp T                      &kp Y       &kp U       &kp I       &kp O       &kp P       &kp BSPC
 &kp LSHFT  &kp A       &ht_s 4 S   &kp D       &kp F       &kp G                      &kp H       &kp J       &kp K       &ht_l 3 L   &kp SEMI    &kp RSHFT
 &kp LALT   &kp Z       &kp X       &kp C       &kp V       &kp B                      &kp N       &kp M       &kp COMMA   &kp DOT     &kp LS(FSLH) &kp RALT
-                                        &ht_kk LGUI ESC  &mo 2    &opt_space_delayed        &kp RET     &lt_spc 1 SPACE   &ht_kk LCTRL BSPC
+                                        &kp LGUI  &lt_spc 2 ESC    &opt_space_delayed        &kp RET     &lt_spc 1 SPACE   &ht_kk LCTRL BSPC
             >;
         };
 

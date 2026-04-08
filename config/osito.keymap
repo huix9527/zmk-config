@@ -35,29 +35,6 @@
             bindings = <&mo>, <&kp>;
         };
 
-        ht_s: hold_tap_s {
-            compatible = "zmk,behavior-hold-tap";
-            #binding-cells = <2>;
-            flavor = "hold-preferred";
-            tapping-term-ms = <200>;
-            require-prior-idle-ms = <120>;
-            hold-trigger-key-positions = <30 31 32 33 34>;
-            hold-trigger-on-release;
-            retro-tap;
-            bindings = <&mo>, <&kp>;
-        };
-
-        ht_l: hold_tap_l {
-            compatible = "zmk,behavior-hold-tap";
-            #binding-cells = <2>;
-            flavor = "hold-preferred";
-            tapping-term-ms = <200>;
-            require-prior-idle-ms = <120>;
-            hold-trigger-key-positions = <25 26 27 28 29>;
-            hold-trigger-on-release;
-            retro-tap;
-            bindings = <&mo>, <&kp>;
-        };
 
         ht_kk: hold_tap_kp_kp {
             compatible = "zmk,behavior-hold-tap";
@@ -78,7 +55,7 @@
             bindings = <
 &kp GRAVE  &kp N1      &kp N2      &kp N3      &kp N4      &kp N5                     &kp N6      &kp N7      &kp N8      &kp N9      &kp N0      &kp BSPC
 &kp TAB    &kp Q       &kp W       &kp E       &kp R       &kp T                      &kp Y       &kp U       &kp I       &kp O       &kp P       &kp BSPC
-&kp LSHFT  &kp A       &ht_s 4 S   &kp D       &kp F       &kp G                      &kp H       &kp J       &kp K       &ht_l 3 L   &kp SEMI    &kp RSHFT
+&kp LSHFT  &kp A       &kp S   &kp D       &kp F       &kp G                      &kp H       &kp J       &kp K       &kp L   &kp SEMI    &kp RSHFT
 &kp LALT   &kp Z       &kp X       &kp C       &kp V       &kp B                      &kp N       &kp M       &kp COMMA   &kp DOT     &kp LS(FSLH) &kp RALT
                                         &kp LGUI  &lt_spc 2 ESC    &opt_space_delayed        &kp RET     &lt_spc 1 SPACE   &ht_kk LCTRL BSPC
             >;

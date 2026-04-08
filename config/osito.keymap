@@ -41,7 +41,7 @@
             #binding-cells = <2>;
             flavor = "hold-preferred";
             tapping-term-ms = <200>;
-            require-prior-idle-ms = <50>;
+            require-prior-idle-ms = <120>;
             hold-trigger-key-positions = <30 31 32 33 34>;
             hold-trigger-on-release;
             retro-tap;
@@ -53,7 +53,7 @@
             #binding-cells = <2>;
             flavor = "hold-preferred";
             tapping-term-ms = <200>;
-            require-prior-idle-ms = <50>;
+            require-prior-idle-ms = <120>;
             hold-trigger-key-positions = <25 26 27 28 29>;
             hold-trigger-on-release;
             retro-tap;

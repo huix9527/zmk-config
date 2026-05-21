@@ -1,0 +1,7 @@
+# SPDX-License-Identifier: MIT
+
+config SHIELD_PALOMITA_LEFT
+    def_bool $(shields_list_contains,palomita_left)
+
+config SHIELD_PALOMITA_RIGHT
+    def_bool $(shields_list_contains,palomita_right)
